@@ -1,0 +1,42 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.0'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.success'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'junit:junit:4.13.1'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    runtimeOnly 'org.postgresql:postgresql'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager
+    implementation group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.6.1.Final'
+    // 저는 로컬에 postgresql이 깔려있어서 postgresql로 dependency 설정했습니다.
+    //본인 로컬에 깔려있는 디비의존성을 깔아주시거나 postgresql을 다운받아서 진행해주세요 (git commit-push는 금지)
+    //jpa를 사용하기 때문에 디비가 바뀌어도 상관없습니다
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.1'
+
+}
+
+test {
+    useJUnitPlatform()
+}
