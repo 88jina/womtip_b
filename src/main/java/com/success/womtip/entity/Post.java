@@ -2,6 +2,7 @@ package com.success.womtip.entity;
 
 import com.success.womtip.utils.Bool2YNConverter;
 import com.sun.istack.NotNull;
+import jdk.jfr.Description;
 import lombok.*;
 
 import javax.persistence.*;
@@ -18,6 +19,10 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "post_cd")
     private Long postCd;
+
+    @Description("게시판 코드")
+    @Column(name = "board_cd")
+    private Long boardCd;
 
     @NotNull
     @Column(name = "title")
