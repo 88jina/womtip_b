@@ -18,7 +18,7 @@ import javax.persistence.*;
 public class Board {
     @Id
     @Description("게시판 코드")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "board_cd")
     private Long boardCd;
 
@@ -29,8 +29,8 @@ public class Board {
 
     @NotNull
     @Description("상위메뉴코드")
-    @Column(name = "parent_menu_cd", columnDefinition = "integer default 1")
-    private int parentMenuCd;
+    @Column(name = "menu_cd", columnDefinition = "integer default 1")
+    private int menuCd;
 
     @Convert(converter = Bool2YNConverter.class)
     @Description("게시판 숨김 여부")
@@ -41,5 +41,11 @@ public class Board {
     @Description("게시판 삭제 여부")
     @Column(name = "del_yn", columnDefinition = "boolean default false")
     private Boolean delYn;
+
+    @ManyToOne
+    @JoinColumn(name = "menu_cd", insertable = false, updatable = false)
+    private Menu menu;
+
+
 
 }

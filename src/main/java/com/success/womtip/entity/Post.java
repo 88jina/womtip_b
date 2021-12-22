@@ -16,7 +16,7 @@ import javax.persistence.*;
 @Table(name="t_post")
 public class Post {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "post_cd")
     private Long postCd;
 
@@ -41,4 +41,9 @@ public class Post {
     @Convert(converter = Bool2YNConverter.class)
     @Column(name = "search_yn", columnDefinition = "boolean default false")
     private Boolean searchYn;
+
+    @ManyToOne
+    @JoinColumn(name = "board_cd" , insertable = false, updatable = false)
+    private Board board;
+
 }

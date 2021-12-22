@@ -15,7 +15,7 @@ import javax.persistence.*;
 public class Menu {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "menu_cd")
     private Long menuCd;
 
@@ -28,7 +28,6 @@ public class Menu {
     private Boolean showYn;
 
     @Description("전시순서")
-    @Column(name = "order")
+    @Column(name = "show_order")
     private int order;
-
 }

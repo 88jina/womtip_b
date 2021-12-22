@@ -15,7 +15,7 @@ import javax.persistence.*;
 public class UserType {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "type_cd")
     private Long typeCd;
 
