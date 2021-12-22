@@ -19,7 +19,7 @@ public class MenuController {
         this.menuService = menuService;
     }
 
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<Void> createMenu(@RequestBody Menu menu) {
         boolean result = menuService.createMenu(menu);
         if (!result) return new ResponseEntity<>(HttpStatus.CONFLICT);
