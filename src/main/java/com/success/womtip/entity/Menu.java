@@ -20,7 +20,7 @@ public class Menu {
     private Long menuCd;
 
     @Description("메뉴이름")
-    @Column(name = "menu_nm")
+    @Column(name = "menu_nm", nullable = false)
     private String menuNm;
 
     @Description("전시여부")

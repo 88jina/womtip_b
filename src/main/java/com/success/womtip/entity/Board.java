@@ -32,6 +32,10 @@ public class Board {
     @Column(name = "menu_cd", columnDefinition = "integer default 1")
     private int menuCd;
 
+    @Description("게시판 레벨")
+    @Column(name = "board_lv", columnDefinition = "integer default 0")
+    private int boardLv;
+
     @Convert(converter = Bool2YNConverter.class)
     @Description("게시판 숨김 여부")
     @Column(name = "blind_yn", columnDefinition = "boolean default false")
