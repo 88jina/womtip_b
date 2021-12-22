@@ -25,7 +25,7 @@ public class Menu {
 
     @Description("전시여부")
     @Column(name = "show_yn", columnDefinition = "boolean default true")
-    private Boolean showYn;
+    private boolean showYn;
 
     @Description("전시순서")
     @Column(name = "show_order")
