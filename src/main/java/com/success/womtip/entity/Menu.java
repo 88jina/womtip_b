@@ -13,7 +13,6 @@ import javax.persistence.*;
 @Entity
 @Table(name="t_menu")
 public class Menu {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "menu_cd")
@@ -24,8 +23,12 @@ public class Menu {
     private String menuNm;
 
     @Description("전시여부")
-    @Column(name = "show_yn", columnDefinition = "boolean default true")
-    private boolean showYn;
+    @Column(name = "blind_yn", columnDefinition = "boolean default false")
+    private Boolean blindYn;
+
+    @Description("삭제여부")
+    @Column(name = "del_yn", columnDefinition = "boolean default false")
+    private Boolean delYn;
 
     @Description("전시순서")
     @Column(name = "show_order")

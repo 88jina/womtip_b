@@ -24,10 +24,19 @@ public class Post {
     @Column(name = "board_cd")
     private Long boardCd;
 
+    @Description("유저 코드")
+    @Column(name = "user_cd")
+    private Long userCd;
+
+    @Description("유저 닉네임")
+    @Column(name="nickname")
+    private String nickname;
+
     @NotNull
     @Column(name = "title")
     private String title;
 
+    //TODO 에디터 사용해서 글, 그림 한꺼번에 처리할 예정.. 의견있음 주세요
     @NotNull
     @Column(name = "contents")
     private String contents;
@@ -45,5 +54,13 @@ public class Post {
     @ManyToOne
     @JoinColumn(name = "board_cd" , insertable = false, updatable = false)
     private Board board;
+
+    @OneToOne
+    @JoinColumns({
+            @JoinColumn(name = "user_cd", referencedColumnName = "user_cd", insertable = false, updatable = false),
+            @JoinColumn(name = "nickname", referencedColumnName = "nickname", insertable = false, updatable = false)
+    })
+    private User user;
+
 
 }

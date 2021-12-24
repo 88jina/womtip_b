@@ -37,7 +37,7 @@ public class Board {
     private int boardLv;
 
     @Convert(converter = Bool2YNConverter.class)
-    @Description("게시판 숨김 여부")
+    @Description("전시 여부")
     @Column(name = "blind_yn", columnDefinition = "boolean default false")
     private Boolean blindYn;
 
@@ -49,7 +49,5 @@ public class Board {
     @ManyToOne
     @JoinColumn(name = "menu_cd", insertable = false, updatable = false)
     private Menu menu;
-
-
 
 }
