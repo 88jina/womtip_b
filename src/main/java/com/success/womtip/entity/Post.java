@@ -6,6 +6,7 @@ import jdk.jfr.Description;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -21,11 +22,11 @@ public class Post {
     private Long postCd;
 
     @Description("게시판 코드")
-    @Column(name = "board_cd")
+    @Column(name = "board_cd",nullable = false)
     private Long boardCd;
 
     @Description("유저 코드")
-    @Column(name = "user_cd")
+    @Column(name = "user_cd", nullable = false)
     private Long userCd;
 
     @Description("유저 닉네임")
@@ -33,7 +34,7 @@ public class Post {
     private String nickname;
 
     @NotNull
-    @Column(name = "title")
+    @Column(name = "title", nullable = false)
     private String title;
 
     //TODO 에디터 사용해서 글, 그림 한꺼번에 처리할 예정.. 의견있음 주세요
@@ -62,5 +63,8 @@ public class Post {
     })
     private User user;
 
+    @OneToMany
+    @JoinColumn(name = "comment_cd")
+    private List<Comment> comments;
 
 }
