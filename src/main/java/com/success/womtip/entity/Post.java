@@ -6,6 +6,7 @@ import jdk.jfr.Description;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -55,6 +56,14 @@ public class Post {
     @ManyToOne
     @JoinColumn(name = "board_cd" , insertable = false, updatable = false)
     private Board board;
+
+    @Description("생성날짜시간")
+    @Column(name = "create_dttm", nullable = false)
+    private LocalDateTime createDttm;
+
+    @Description("수정날짜시간")
+    @Column(name = "update_dttm", nullable = false)
+    private LocalDateTime updateDttm;
 
     @OneToOne
     @JoinColumns({

@@ -4,6 +4,7 @@ import jdk.jfr.Description;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -34,6 +35,14 @@ public class Comment {
     @Description("댓글내용")
     @Column(name = "contents", nullable = false)
     private String contents;
+
+    @Description("생성날짜시간")
+    @Column(name = "create_dttm", nullable = false)
+    private LocalDateTime createDttm;
+
+    @Description("수정날짜시간")
+    @Column(name = "update_dttm", nullable = false)
+    private LocalDateTime updateDttm;
 
     @OneToOne
     @JoinColumn(name = "post_cd", insertable = false, updatable = false)
