@@ -30,7 +30,7 @@ public class Board {
     @NotNull
     @Description("상위메뉴코드")
     @Column(name = "menu_cd", columnDefinition = "integer default 1")
-    private int menuCd;
+    private Long menuCd;
 
     @Description("게시판 레벨")
     @Column(name = "board_lv", columnDefinition = "integer default 0")
