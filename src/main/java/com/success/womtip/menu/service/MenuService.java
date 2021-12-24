@@ -20,13 +20,13 @@ public class MenuService {
         this.menuRepository = menuRepository;
     }
 
-    public List<Menu> retrieveMenu(String menuNm, Boolean showYn){
-        if(!ObjectUtils.isEmpty(menuNm)&&!"".equals(menuNm)&& showYn!=null){
-          return menuRepository.findMenusByMenuNmContainsAndShowYnOrderByOrder(menuNm,showYn);
+    public List<Menu> retrieveMenu(String menuNm, Boolean blindYn){
+        if(!ObjectUtils.isEmpty(menuNm)&&!"".equals(menuNm)&& blindYn!=null){
+          return menuRepository.findMenusByMenuNmContainsAndBlindYnOrderByOrder(menuNm,blindYn);
         }else if(!ObjectUtils.isEmpty(menuNm)&&!"".equals(menuNm)){
             return menuRepository.findMenusByMenuNmContainingOrderByOrder(menuNm);
-        }else if(showYn!=null){
-            return menuRepository.findMenusByShowYnOrderByOrder(showYn);
+        }else if(blindYn!=null){
+            return menuRepository.findMenusByBlindYnOrderByOrder(blindYn);
         }
         return menuRepository.findAll(Sort.by(Sort.Direction.ASC,"order"));
     }

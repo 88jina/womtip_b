@@ -19,8 +19,8 @@ public class MenuController {
     }
 
     @GetMapping
-    public List<Menu> retrieveMenu(@RequestParam(required = false) String menuNm, @RequestParam(required = false) Boolean showYn) {
-        return menuService.retrieveMenu(menuNm, showYn);
+    public List<Menu> retrieveMenu(@RequestParam(required = false) String menuNm, @RequestParam(required = false) Boolean blindYn) {
+        return menuService.retrieveMenu(menuNm, blindYn);
     }
 
 

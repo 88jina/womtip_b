@@ -8,8 +8,8 @@ import java.util.Optional;
 
 public interface MenuRepository extends JpaRepository<Menu,Long> {
 
-    List<Menu> findMenusByMenuNmContainsAndShowYnOrderByOrder(String menuNm,boolean showYn);
+    List<Menu> findMenusByMenuNmContainsAndBlindYnOrderByOrder(String menuNm,boolean blindYn);
     List<Menu> findMenusByMenuNmContainingOrderByOrder(String menuNm);
-    List<Menu> findMenusByShowYnOrderByOrder(boolean showYn);
+    List<Menu> findMenusByBlindYnOrderByOrder(boolean blindYn);
 
 }
