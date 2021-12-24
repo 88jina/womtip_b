@@ -1,7 +1,7 @@
 package com.success.womtip.menu.controller;
 
 import com.success.womtip.entity.Menu;
-import com.success.womtip.menu.service.MenuService;
+import com.success.womtip.menu.service.MenuBOService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,23 +10,23 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/menu")
-public class MenuController {
+public class MenuBOController {
 
-    private final MenuService menuService;
+    private final MenuBOService menuBOService;
 
-    public MenuController(MenuService menuService) {
-        this.menuService = menuService;
+    public MenuBOController(MenuBOService menuBOService) {
+        this.menuBOService = menuBOService;
     }
 
     @GetMapping
     public List<Menu> retrieveMenu(@RequestParam(required = false) String menuNm, @RequestParam(required = false) Boolean blindYn) {
-        return menuService.retrieveMenu(menuNm, blindYn);
+        return menuBOService.retrieveMenu(menuNm, blindYn);
     }
 
 
     @PostMapping
     public ResponseEntity<Void> createMenu(@RequestBody Menu menu) {
-        boolean result = menuService.createMenu(menu);
+        boolean result = menuBOService.createMenu(menu);
         if (!result) return new ResponseEntity<>(HttpStatus.CONFLICT);
 
         return new ResponseEntity<>(HttpStatus.CREATED);
@@ -34,14 +34,14 @@ public class MenuController {
 
     @PutMapping
     public ResponseEntity<Void> updateMenu(@RequestBody Menu menu) {
-        boolean result = menuService.updateMenu(menu);
+        boolean result = menuBOService.updateMenu(menu);
         if (!result) return new ResponseEntity<>(HttpStatus.CONFLICT);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping
     public ResponseEntity<String> deleteMenu(@RequestParam Long menuCd) {
-        boolean result = menuService.deleteMenu(menuCd);
+        boolean result = menuBOService.deleteMenu(menuCd);
         if (!result) return new ResponseEntity<>(HttpStatus.CONFLICT);
         return new ResponseEntity<>(HttpStatus.OK);
     }

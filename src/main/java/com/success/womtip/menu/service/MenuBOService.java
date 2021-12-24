@@ -12,11 +12,11 @@ import java.util.List;
 
 @Slf4j
 @Service
-public class MenuService {
+public class MenuBOService {
 
     private final MenuRepository menuRepository;
 
-    public MenuService(MenuRepository menuRepository) {
+    public MenuBOService(MenuRepository menuRepository) {
         this.menuRepository = menuRepository;
     }
 
