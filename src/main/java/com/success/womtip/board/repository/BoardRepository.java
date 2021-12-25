@@ -5,7 +5,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.lang.NonNull;
-import org.springframework.lang.NonNullApi;
+import org.springframework.lang.Nullable;
 
 import java.util.List;
 
@@ -13,5 +13,5 @@ public interface BoardRepository extends JpaRepository<Board, Long>, JpaSpecific
 
     @Override
     @NonNull
-    List<Board> findAll(Specification<Board> spec);
+    List<Board> findAll(@Nullable Specification<Board> spec);
 }
