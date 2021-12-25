@@ -7,7 +7,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @Setter
@@ -15,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="t_post")
+@Table(name = "t_post")
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +22,7 @@ public class Post {
     private Long postCd;
 
     @Description("게시판 코드")
-    @Column(name = "board_cd",nullable = false)
+    @Column(name = "board_cd", nullable = false)
     private Long boardCd;
 
     @Description("유저 코드")
@@ -31,7 +30,7 @@ public class Post {
     private Long userCd;
 
     @Description("유저 닉네임")
-    @Column(name="nickname")
+    @Column(name = "nickname")
     private String nickname;
 
     @NotNull
@@ -53,9 +52,6 @@ public class Post {
     @Column(name = "search_yn", columnDefinition = "boolean default false")
     private Boolean searchYn;
 
-    @ManyToOne
-    @JoinColumn(name = "board_cd" , insertable = false, updatable = false)
-    private Board board;
 
     @Description("생성날짜시간")
     @Column(name = "create_dttm", nullable = false)
@@ -65,15 +61,19 @@ public class Post {
     @Column(name = "update_dttm", nullable = false)
     private LocalDateTime updateDttm;
 
-    @OneToOne
-    @JoinColumns({
-            @JoinColumn(name = "user_cd", referencedColumnName = "user_cd", insertable = false, updatable = false),
-            @JoinColumn(name = "nickname", referencedColumnName = "nickname", insertable = false, updatable = false)
-    })
-    private User user;
+//    @ManyToOne
+//    @JoinColumn(name = "board_cd" , insertable = false, updatable = false)
+//    private Board board;
 
-    @OneToMany
-    @JoinColumn(name = "comment_cd")
-    private List<Comment> comments;
+//    @OneToOne
+//    @JoinColumns({
+//            @JoinColumn(name = "user_cd", referencedColumnName = "user_cd", insertable = false, updatable = false),
+//            @JoinColumn(name = "nickname", referencedColumnName = "nickname", insertable = false, updatable = false)
+//    })
+//    private User user;
+//
+//    @OneToMany
+//    @JoinColumn(name = "comment_cd")
+//    private List<Comment> comments;
 
 }

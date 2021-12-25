@@ -44,13 +44,13 @@ public class Comment {
     @Column(name = "update_dttm", nullable = false)
     private LocalDateTime updateDttm;
 
-    @OneToOne
-    @JoinColumn(name = "post_cd", insertable = false, updatable = false)
-    private Post post;
-
-    @OneToOne
-    @JoinColumn(name = "user_cd", insertable = false, updatable = false)
-    private User user;
+//    @OneToOne
+//    @JoinColumn(name = "post_cd", insertable = false, updatable = false)
+//    private Post post;
+//
+//    @OneToOne
+//    @JoinColumn(name = "user_cd", insertable = false, updatable = false)
+//    private User user;
 
 
 }

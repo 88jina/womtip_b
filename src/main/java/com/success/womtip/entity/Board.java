@@ -4,7 +4,6 @@ import com.success.womtip.utils.Bool2YNConverter;
 import com.sun.istack.NotNull;
 import jdk.jfr.Description;
 import lombok.*;
-import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 
@@ -50,8 +49,8 @@ public class Board {
     @Column(name = "del_yn", columnDefinition = "boolean default false")
     private Boolean delYn;
 
-    @ManyToOne
-    @JoinColumn(name = "menu_cd", insertable = false, updatable = false)
-    private Menu menu;
+//    @ManyToOne
+//    @JoinColumn(name = "menu_cd", insertable = false, updatable = false)
+//    private Menu menu;
 
 }
