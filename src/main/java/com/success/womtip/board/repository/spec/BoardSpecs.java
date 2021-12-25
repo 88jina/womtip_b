@@ -1,11 +1,7 @@
-package com.success.womtip.spec;
+package com.success.womtip.board.repository.spec;
 
-import com.success.womtip.board.repository.BoardRepository;
 import com.success.womtip.entity.Board;
-import org.springframework.boot.autoconfigure.BackgroundPreinitializer;
 import org.springframework.data.jpa.domain.Specification;
-
-import java.util.List;
 
 public class BoardSpecs {
 
