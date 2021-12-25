@@ -34,12 +34,16 @@ public class Board {
 
     @Description("게시판 레벨")
     @Column(name = "board_lv", columnDefinition = "integer default 0")
-    private int boardLv;
+    private Integer boardLv;
 
     @Convert(converter = Bool2YNConverter.class)
     @Description("전시 여부")
     @Column(name = "blind_yn", columnDefinition = "boolean default false")
     private Boolean blindYn;
+
+    @Description("전시 순서")
+    @Column(name = "show_order", columnDefinition = "Integer default 0")
+    private Integer order;
 
     @Convert(converter = Bool2YNConverter.class)
     @Description("게시판 삭제 여부")
