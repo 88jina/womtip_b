@@ -27,6 +27,8 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.projectlombok:lombok'
+    // https://mvnrepository.com/artifact/org.mockito/mockito-all
+    testImplementation 'org.mockito:mockito-all:1.10.19'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     // https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager
     implementation group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.6.1.Final'
