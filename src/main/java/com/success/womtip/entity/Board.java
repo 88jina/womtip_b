@@ -4,6 +4,8 @@ import com.success.womtip.utils.Bool2YNConverter;
 import com.sun.istack.NotNull;
 import jdk.jfr.Description;
 import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 
@@ -12,6 +14,8 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@DynamicInsert
+@DynamicUpdate
 @Entity
 @Table(name="t_board")
 public class Board {
@@ -49,8 +53,8 @@ public class Board {
     @Column(name = "del_yn", columnDefinition = "boolean default false")
     private Boolean delYn;
 
-//    @ManyToOne
-//    @JoinColumn(name = "menu_cd", insertable = false, updatable = false)
-//    private Menu menu;
+    @ManyToOne
+    @JoinColumn(name = "menu_cd", insertable = false, updatable = false)
+    private Menu menu;
 
 }

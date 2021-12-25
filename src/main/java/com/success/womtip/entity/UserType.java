@@ -2,6 +2,8 @@ package com.success.womtip.entity;
 
 import jdk.jfr.Description;
 import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 
@@ -10,6 +12,8 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@DynamicInsert
+@DynamicUpdate
 @Entity
 @Table(name="t_usertype")
 public class UserType {

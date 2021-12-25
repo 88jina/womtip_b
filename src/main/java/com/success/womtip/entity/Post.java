@@ -4,15 +4,20 @@ import com.success.womtip.utils.Bool2YNConverter;
 import com.sun.istack.NotNull;
 import jdk.jfr.Description;
 import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@DynamicInsert
+@DynamicUpdate
 @Entity
 @Table(name = "t_post")
 public class Post {
@@ -61,19 +66,19 @@ public class Post {
     @Column(name = "update_dttm", nullable = false)
     private LocalDateTime updateDttm;
 
-//    @ManyToOne
-//    @JoinColumn(name = "board_cd" , insertable = false, updatable = false)
-//    private Board board;
+    @ManyToOne
+    @JoinColumn(name = "board_cd" , insertable = false, updatable = false)
+    private Board board;
 
-//    @OneToOne
-//    @JoinColumns({
-//            @JoinColumn(name = "user_cd", referencedColumnName = "user_cd", insertable = false, updatable = false),
-//            @JoinColumn(name = "nickname", referencedColumnName = "nickname", insertable = false, updatable = false)
-//    })
-//    private User user;
-//
-//    @OneToMany
-//    @JoinColumn(name = "comment_cd")
-//    private List<Comment> comments;
+    @OneToOne
+    @JoinColumns({
+            @JoinColumn(name = "user_cd", referencedColumnName = "user_cd", insertable = false, updatable = false),
+            @JoinColumn(name = "nickname", referencedColumnName = "nickname", insertable = false, updatable = false)
+    })
+    private User user;
+
+    @OneToMany
+    @JoinColumn(name = "comment_cd")
+    private List<Comment> comments;
 
 }

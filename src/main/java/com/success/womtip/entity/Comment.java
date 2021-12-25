@@ -2,6 +2,8 @@ package com.success.womtip.entity;
 
 import jdk.jfr.Description;
 import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -11,6 +13,8 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@DynamicInsert
+@DynamicUpdate
 @Entity
 @Table(name = "t_comment")
 public class Comment {
@@ -44,13 +48,13 @@ public class Comment {
     @Column(name = "update_dttm", nullable = false)
     private LocalDateTime updateDttm;
 
-//    @OneToOne
-//    @JoinColumn(name = "post_cd", insertable = false, updatable = false)
-//    private Post post;
-//
-//    @OneToOne
-//    @JoinColumn(name = "user_cd", insertable = false, updatable = false)
-//    private User user;
+    @OneToOne
+    @JoinColumn(name = "post_cd", insertable = false, updatable = false)
+    private Post post;
+
+    @OneToOne
+    @JoinColumn(name = "user_cd", insertable = false, updatable = false)
+    private User user;
 
 
 }
