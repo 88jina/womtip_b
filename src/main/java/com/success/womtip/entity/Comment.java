@@ -40,6 +40,10 @@ public class Comment {
     @Column(name = "contents", nullable = false)
     private String contents;
 
+    @Description("비밀댓글여부")
+    @Column(name = "blind_yn", nullable = false, columnDefinition = "boolean default false")
+    private Boolean blindYn;
+
     @Description("생성날짜시간")
     @Column(name = "create_dttm", nullable = false)
     private LocalDateTime createDttm;

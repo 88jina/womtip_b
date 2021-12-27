@@ -1,6 +1,5 @@
 package com.success.womtip.entity;
 
-import com.success.womtip.utils.Bool2YNConverter;
 import com.sun.istack.NotNull;
 import jdk.jfr.Description;
 import lombok.*;
@@ -39,24 +38,8 @@ public class Post {
     private String nickname;
 
     @NotNull
-    @Column(name = "title", nullable = false)
-    private String title;
-
-    //TODO 에디터 사용해서 글, 그림 한꺼번에 처리할 예정.. 의견있음 주세요
-    @NotNull
     @Column(name = "contents")
     private String contents;
-
-    @NotNull
-    @Convert(converter = Bool2YNConverter.class)
-    @Column(name = "share_yn", columnDefinition = "boolean default false")
-    private Boolean shareYn;
-
-    @NotNull
-    @Convert(converter = Bool2YNConverter.class)
-    @Column(name = "search_yn", columnDefinition = "boolean default false")
-    private Boolean searchYn;
-
 
     @Description("생성날짜시간")
     @Column(name = "create_dttm", nullable = false)
