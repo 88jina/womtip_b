@@ -4,12 +4,10 @@ import com.success.womtip.entity.Menu;
 import com.success.womtip.menu.repository.MenuRepository;
 import com.success.womtip.menu.repository.spec.MenuSpecs;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
-import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.Objects;
 
@@ -33,32 +31,29 @@ public class MenuBOService {
 
 
     public boolean createMenu(Menu menu) {
-        boolean result = false;
         Menu resultEntity = menuRepository.save(menu);
-        if (!ObjectUtils.isEmpty(resultEntity)) result = true;
-
-        return result;
+        if (!ObjectUtils.isEmpty(resultEntity)) return true;
+        return false;
     }
 
     public boolean updateMenu(Menu menu) {
-        boolean result = false;
         Menu found = menuRepository.getById(menu.getMenuCd());
         if (found.getMenuCd() != null) {
             menuRepository.save(menu);
-            result = true;
+            return true;
         }
 
-        return result;
+        return false;
     }
 
     public boolean deleteMenu(Long menuCd) {
-        boolean result = false;
         Menu found = menuRepository.getById(menuCd);
         if (!ObjectUtils.isEmpty(found)) {
-            menuRepository.deleteById(menuCd);
-            result = true;
+            found.setDelYn(true);
+            menuRepository.save(found);
+            return true;
         }
-        return result;
+        return false;
 
     }
 }

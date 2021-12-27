@@ -40,7 +40,7 @@ public class MenuBOController {
     }
 
     @DeleteMapping
-    public ResponseEntity<String> deleteMenu(@RequestParam Long menuCd) {
+    public ResponseEntity<Void> deleteMenu(@RequestParam Long menuCd) {
         boolean result = menuBOService.deleteMenu(menuCd);
         if (!result) return new ResponseEntity<>(HttpStatus.CONFLICT);
         return new ResponseEntity<>(HttpStatus.OK);

@@ -6,6 +6,7 @@ import com.success.womtip.entity.Board;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 import java.util.List;
 import java.util.Objects;
@@ -27,5 +28,30 @@ public class BoardBOService {
         if (menuCd != null) spec = spec.and(BoardSpecs.equalMenuCd(menuCd));
         if (boardLv != null) spec = spec.and(BoardSpecs.equalBoardLv(boardLv));
         return boardRepository.findAll(spec);
+    }
+
+    public boolean createBoard(Board board) {
+        Board resultEntity = boardRepository.save(board);
+        if (resultEntity.getBoardCd() != null) return true;
+        return false;
+    }
+
+    public boolean updateMenu(Board board) {
+        Board found = boardRepository.getById(board.getBoardCd());
+        if(found.getBoardCd()!=null){
+            boardRepository.save(board);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean deleteBoard(Long boardCd) {
+        Board found = boardRepository.getById(boardCd);
+        if(!ObjectUtils.isEmpty(found)) {
+            found.setDelYn(true);
+            boardRepository.save(found);
+            return true;
+        }
+        return false;
     }
 }

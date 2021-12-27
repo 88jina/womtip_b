@@ -18,12 +18,12 @@ import java.util.List;
 @DynamicInsert
 @DynamicUpdate
 @Entity
-@Table(name = "t_post")
-public class Post {
+@Table(name = "t_temp_post")
+public class TempPost {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "post_cd")
-    private Long postCd;
+    @Column(name = "temp_post_cd")
+    private Long tempPostCd;
 
     @Description("게시판 코드")
     @Column(name = "board_cd", nullable = false)
@@ -54,7 +54,7 @@ public class Post {
     private LocalDateTime updateDttm;
 
     @ManyToOne
-    @JoinColumn(name = "board_cd" , insertable = false, updatable = false)
+    @JoinColumn(name = "board_cd", insertable = false, updatable = false)
     private Board board;
 
     @OneToOne
@@ -64,9 +64,6 @@ public class Post {
     })
     private User user;
 
-    @OneToMany
-    @JoinColumn(name = "comment_cd")
-    private List<Comment> comments;
 
     @OneToMany
     @JoinColumn(name = "map_cd")
