@@ -3,8 +3,6 @@ package com.success.womtip.board.repository.spec;
 import com.success.womtip.entity.Board;
 import org.springframework.data.jpa.domain.Specification;
 
-import javax.persistence.criteria.Predicate;
-
 public class BoardSpecs {
 
     public static Specification<Board> likeBoardNm(final String boardNm) {
@@ -16,7 +14,6 @@ public class BoardSpecs {
         return (root, query, criteriaBuilder) ->
                 criteriaBuilder.equal(root.get("menuCd"),  menuCd );
     }
-
 
     public static Specification<Board> equalBlindYn(final Boolean blindYn) {
         return (root, query, criteriaBuilder) ->

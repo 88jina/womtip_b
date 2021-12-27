@@ -19,7 +19,7 @@ public class BoardBOController {
         this.boardBOService = boardBOService;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<Board> retrieveBoards(@RequestParam(required = false) Long menuCd,
                                       @RequestParam(required = false) String boardNm,
                                       @RequestParam(required = false) Integer boardLv,
@@ -27,21 +27,21 @@ public class BoardBOController {
         return boardBOService.retrieveBoard(menuCd, boardNm, boardLv, blindYn);
     }
 
-    @PostMapping("")
+    @PostMapping
     public ResponseEntity<Void> createBoard(@RequestBody Board board){
         if(ObjectUtils.isEmpty(board))return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         if(!boardBOService.createBoard(board)) return new ResponseEntity<>(HttpStatus.CONFLICT);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PutMapping("")
+    @PutMapping
     public ResponseEntity<Void> updateBoard(@RequestBody Board board){
         if(ObjectUtils.isEmpty(board))return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         if(!boardBOService.updateMenu(board)) return new ResponseEntity<>(HttpStatus.CONFLICT);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping("")
+    @DeleteMapping
     public ResponseEntity<Void> deleteBoard(@RequestParam Long boardCd){
         if(!boardBOService.deleteBoard(boardCd)) return new ResponseEntity<>(HttpStatus.CONFLICT);
         return new ResponseEntity<>(HttpStatus.OK);
