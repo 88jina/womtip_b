@@ -6,6 +6,7 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -27,4 +28,7 @@ public class Tag {
     @Column(name = "tag_nm", nullable = false)
     private String tagNm;
 
+    @OneToMany
+    @JoinColumn(name = "map_cd")
+    private List<PostTagMap> postTagMaps;
 }

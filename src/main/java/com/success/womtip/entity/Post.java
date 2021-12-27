@@ -64,4 +64,8 @@ public class Post {
     @JoinColumn(name = "comment_cd")
     private List<Comment> comments;
 
+    @OneToMany
+    @JoinColumn(name = "map_cd")
+    private List<PostTagMap> postTagMaps;
+
 }
