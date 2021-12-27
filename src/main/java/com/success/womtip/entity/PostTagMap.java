@@ -1,6 +1,5 @@
 package com.success.womtip.entity;
 
-import jdk.jfr.Description;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -15,16 +14,26 @@ import javax.persistence.*;
 @DynamicInsert
 @DynamicUpdate
 @Entity
-@Table(name = "t_tag")
-public class Tag {
+@Table(name = "t_post_tag_map")
+public class PostTagMap {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "map_cd")
+    private Long mapCd;
+
     @Column(name = "tag_cd")
     private Long tagCd;
 
-    @Description("태그명")
-    @Column(name = "tag_nm", nullable = false)
-    private String tagNm;
+    @Column(name = "post_cd")
+    private Long postCd;
+
+    @ManyToOne
+    @JoinColumn(name = "tag_cd",insertable = false,updatable = false)
+    private Tag tag;
+
+    @ManyToOne
+    @JoinColumn(name = "post_cd", insertable = false, updatable = false)
+    private Post post;
 
 }
