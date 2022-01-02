@@ -6,6 +6,7 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 
 @Getter
@@ -25,6 +26,12 @@ public class User {
     @Column(name = "user_cd")
     private Long userCd;
 
+    @Column(name = "user_id")
+    private String userId;
+
+    @Column(name = "password")
+    private String password;
+
     @Description("닉네임")
     @Column(name = "nickname")
     private String nickname;
@@ -32,4 +39,11 @@ public class User {
     @Description("유저등급코드")
     @Column(name = "type_cd")
     private Long typeCd;
+
+    @Column(name = "last_login_dttm")
+    private LocalDateTime lastLoginDttm;
+
+    @Column(name = "register_dttm")
+    private LocalDateTime registerDttm;
+
 }

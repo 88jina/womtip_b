@@ -31,8 +31,4 @@ public class UserType {
     @Column(name = "mng_board_yn",columnDefinition = "boolean default false")
     private Boolean mngBoardYn;
 
-
-
-
-
 }
