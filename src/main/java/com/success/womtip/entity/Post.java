@@ -30,8 +30,8 @@ public class Post {
     private Long boardCd;
 
     @Description("유저 코드")
-    @Column(name = "user_cd", nullable = false)
-    private Long userCd;
+    @Column(name = "member_cd", nullable = false)
+    private Long memberCd;
 
     @Description("유저 닉네임")
     @Column(name = "nickname")
@@ -59,10 +59,10 @@ public class Post {
 
     @OneToOne
     @JoinColumns({
-            @JoinColumn(name = "user_cd", referencedColumnName = "user_cd", insertable = false, updatable = false),
+            @JoinColumn(name = "member_cd", referencedColumnName = "member_cd", insertable = false, updatable = false),
             @JoinColumn(name = "nickname", referencedColumnName = "nickname", insertable = false, updatable = false)
     })
-    private User user;
+    private Member member;
 
     @OneToMany
     @JoinColumn(name = "comment_cd")

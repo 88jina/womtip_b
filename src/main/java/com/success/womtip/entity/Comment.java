@@ -25,8 +25,8 @@ public class Comment {
     private Long commentCd;
 
     @Description("사용자코드")
-    @Column(name = "user_cd", nullable = false)
-    private Long userCd;
+    @Column(name = "member_cd", nullable = false)
+    private Long memberCd;
 
     @Description("원글코드")
     @Column(name = "post_cd", nullable = false)
@@ -57,8 +57,8 @@ public class Comment {
     private Post post;
 
     @OneToOne
-    @JoinColumn(name = "user_cd", insertable = false, updatable = false)
-    private User user;
+    @JoinColumn(name = "member_cd", insertable = false, updatable = false)
+    private Member member;
 
 
 }
