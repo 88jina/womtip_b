@@ -37,6 +37,8 @@ dependencies {
     //본인 로컬에 깔려있는 디비의존성을 깔아주시거나 postgresql을 다운받아서 진행해주세요 (git commit-push는 금지)
     //jpa를 사용하기 때문에 디비가 바뀌어도 상관없습니다
     implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.1'
+// https://mvnrepository.com/artifact/com.auth0/java-jwt
+    implementation 'com.auth0:java-jwt:3.18.2'
 
 }
 
