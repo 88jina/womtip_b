@@ -7,6 +7,9 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Getter
 @Setter
@@ -16,7 +19,7 @@ import java.time.LocalDateTime;
 @DynamicInsert
 @DynamicUpdate
 @Entity
-@Table(name="t_member")
+@Table(name = "t_member")
 public class Member {
 
 
@@ -35,6 +38,10 @@ public class Member {
     @Column(name = "nickname")
     private String nickname;
 
+    @Description("유저구분")
+    @Column(name = "roles")
+    private String roles;
+
     @Description("유저등급코드")
     @Column(name = "type_cd")
     private Long typeCd;
@@ -44,4 +51,12 @@ public class Member {
 
     @Column(name = "register_dttm")
     private LocalDateTime registerDttm;
+
+
+    // ENUM으로 안하고 ROLE을 입력한 후 따옴표(,)로 구분해서 파싱
+    public List<String> getRoleList() {
+        if (this.roles.length() > 0) return Arrays.asList(this.roles.split(","));
+        return new ArrayList<>();
+    }
+
 }
