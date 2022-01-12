@@ -39,6 +39,8 @@ dependencies {
     implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.1'
 // https://mvnrepository.com/artifact/com.auth0/java-jwt
     implementation 'com.auth0:java-jwt:3.18.2'
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-mail
+    implementation 'org.springframework.boot:spring-boot-starter-mail:2.6.2'
 
 }
 
