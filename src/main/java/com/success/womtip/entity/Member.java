@@ -19,7 +19,9 @@ import java.util.List;
 @DynamicInsert
 @DynamicUpdate
 @Entity
-@Table(name = "t_member")
+@Table(name = "t_member", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"member_id","nickname"})
+})
 public class Member {
 
 
@@ -38,6 +40,9 @@ public class Member {
     @Column(name = "nickname")
     private String nickname;
 
+    @Column(name = "email")
+    private String email;
+
     @Description("유저구분")
     @Column(name = "roles")
     private String roles;
@@ -46,10 +51,10 @@ public class Member {
     @Column(name = "type_cd")
     private Long typeCd;
 
-    @Column(name = "last_login_dttm")
+    @Column(name = "last_login_dttm",  columnDefinition = "DATE DEFAULT CURRENT_DATE")
     private LocalDateTime lastLoginDttm;
 
-    @Column(name = "register_dttm")
+    @Column(name = "register_dttm" ,  columnDefinition = "DATE DEFAULT CURRENT_DATE")
     private LocalDateTime registerDttm;
 
 

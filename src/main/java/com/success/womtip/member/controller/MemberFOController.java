@@ -17,9 +17,13 @@ public class MemberFOController {
         return memberFOService.createMember(member);
     }
 
-    @GetMapping("duple-check")
-    public boolean dupleCheck(@RequestParam String memberId){
-        return memberFOService.dupleCheck(memberId);
+    @GetMapping("id/duple-check")
+    public boolean idDupleCheck(@RequestParam String memberId){
+        return memberFOService.idDupleCheck(memberId);
     }
 
+    @GetMapping("nick/duple-check")
+    public boolean nickDupleCheck(@RequestParam String nickname){
+        return memberFOService.nickDupleCheck(nickname);
+    }
 }

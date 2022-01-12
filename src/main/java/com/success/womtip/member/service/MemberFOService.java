@@ -18,8 +18,13 @@ public class MemberFOService {
         return memberRepository.save(member);
     }
 
-    public boolean dupleCheck(String memberId){
+    public boolean idDupleCheck(String memberId){
         Member found =memberRepository.findMemberByMemberId(memberId);
         return found.getMemberCd() == null;
+    }
+
+    public boolean nickDupleCheck(String nickname) {
+        Member found = memberRepository.findMemberByNickname(nickname);
+        return found.getMemberCd() ==null;
     }
 }
