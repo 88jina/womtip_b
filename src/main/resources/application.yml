@@ -1,0 +1,47 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        temp:
+          use_jdbc_metadata_defaults: 'false'
+        format_sql: 'true'
+        id:
+          new_generator_mappings: 'false'
+    hibernate:
+      ddl-auto: create-drop
+    show_sql: 'true'
+  mail:
+    username: womtipnoreply@gmail.com
+    host: smtp.gmail.com
+    properties:
+      mail:
+        smtp:
+          starttls:
+            required: 'true'
+            enable: 'true'
+          writetimeout: '5000'
+          timeout: '5000'
+          auth: 'true'
+          connectiontimeout: '5000'
+    port: '587'
+    password: womtip12#
+    default-encoding: UTF-8
+  main:
+    allow-bean-definition-overriding: 'true'
+  datasource:
+    password: postgres
+    username: jinapark
+    url: jdbc:postgresql://localhost:5432/postgres?characterEncoding=UTF-8
+  sql:
+    init:
+      encoding: utf-8
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+        SQL: DEBUG

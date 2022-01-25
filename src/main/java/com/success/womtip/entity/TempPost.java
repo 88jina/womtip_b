@@ -33,10 +33,6 @@ public class TempPost {
     @Column(name = "member_cd", nullable = false)
     private Long memberCd;
 
-    @Description("유저 닉네임")
-    @Column(name = "nickname")
-    private String nickname;
-
     @NotNull
     @Column(name = "contents")
     private String contents;
@@ -59,8 +55,7 @@ public class TempPost {
 
     @OneToOne
     @JoinColumns({
-            @JoinColumn(name = "member_cd", referencedColumnName = "member_cd", insertable = false, updatable = false),
-            @JoinColumn(name = "nickname", referencedColumnName = "nickname", insertable = false, updatable = false)
+            @JoinColumn(name = "member_cd", referencedColumnName = "member_cd", insertable = false, updatable = false)
     })
     private Member member;
 
