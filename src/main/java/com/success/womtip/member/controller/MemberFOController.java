@@ -25,11 +25,6 @@ public class MemberFOController {
         return memberFOService.idDupleCheck(memberId);
     }
 
-    @GetMapping("nick/duple-check")
-    public boolean nickDupleCheck(@RequestParam String nickname) {
-        return memberFOService.nickDupleCheck(nickname);
-    }
-
     @PostMapping("mail-auth")
     public String mailAuth(@RequestParam String email) {
         SimpleMailMessage message = new SimpleMailMessage();

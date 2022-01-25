@@ -23,8 +23,4 @@ public class MemberFOService {
         return found.getMemberCd() == null;
     }
 
-    public boolean nickDupleCheck(String nickname) {
-        Member found = memberRepository.findMemberByNickname(nickname);
-        return found.getMemberCd() ==null;
-    }
 }

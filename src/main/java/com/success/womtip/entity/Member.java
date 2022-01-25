@@ -20,7 +20,7 @@ import java.util.List;
 @DynamicUpdate
 @Entity
 @Table(name = "t_member", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"member_id","nickname"})
+        @UniqueConstraint(columnNames = {"member_id","email"})
 })
 public class Member {
 
@@ -30,17 +30,13 @@ public class Member {
     @Column(name = "member_cd")
     private Long memberCd;
 
-    @Column(name = "member_id")
+    @Column(name = "member_id", unique = true)
     private String memberId;
 
     @Column(name = "password")
     private String password;
 
-    @Description("닉네임")
-    @Column(name = "nickname")
-    private String nickname;
-
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
 
     @Description("유저구분")
